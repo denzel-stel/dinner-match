@@ -13,6 +13,8 @@ services:
       - $POSTGRESDB_LOCAL_PORT:$POSTGRESDB_DOCKER_PORT
     volumes:
       - db:/var/lib/postgresql/data
+    networks:
+      - shared_network
   node-application:
     build:
       context: ./  # Set project root as build context
@@ -20,7 +22,7 @@ services:
     container_name: node-application
     depends_on:
       - postgresdb
-    restart: restart
+    restart: always
     env_file: .env
     volumes:
       - ./:/dinner_match/
@@ -32,7 +34,20 @@ services:
       - DB_PASSWORD=${POSTGRESDB_ROOT_PASSWORD}
       - DB_NAME=${POSTGRESDB_DATABASE}
       - DB_PORT=${POSTGRESDB_DOCKER_PORT}
-
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4_container
+    restart: always
+    ports:
+      - "8888:80"
+    env_file: .env
+    environment:
+      PGADMIN_DEFAULT_EMAIL: denzelstellingwerf@outlook.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    networks:
+      - shared_network
   # expo-app:
   #   build: ./app
   #   container_name: expo-app
@@ -52,4 +67,7 @@ volumes:
     driver: local
   node-volume:
     driver: local
- 
+  pgadmin-data:
+networks:
+  shared_network:
+    driver: bridge

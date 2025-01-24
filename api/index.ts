@@ -8,16 +8,20 @@ import { eq } from "drizzle-orm";
 
 dotenv.config();
 
-// const db = drizzle(process.env.DATABASE_URL!);
+console.log(process.env.DATABASE_URL!)
+const db = drizzle(process.env.DATABASE_URL!);
 
 // // Main function test db connection
-// async function main() {
-//   console.log('Connecting to the database...', db)
-//   const user: typeof usersTable.$inferInsert = {
-//     username: 'John',
-//     email: 'john@example.com',
-//   };
+async function main() {
+  console.log('Connecting to the database...', db)
+  const user: typeof usersTable.$inferInsert = {
+    username: 'John',
+    email: 'john@example.com',
+  };
+    // await db.insert(usersTable).values(user);
 
+}
+main();
 //   await db.insert(usersTable).values(user);
 //   console.log('New user created!')
 
