@@ -9,7 +9,7 @@ COPY . .
 WORKDIR /dinner_match/api
 
 RUN npm install
-
+RUN npx drizzle-kit push
 EXPOSE 3000
 
 CMD ["npm", "run", "dev"]

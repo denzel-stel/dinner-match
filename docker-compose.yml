@@ -1,7 +1,6 @@
 services:
   
   postgresdb:
-    
     restart: unless-stopped
     env_file: .env
     image: postgres
@@ -13,8 +12,8 @@ services:
       - $POSTGRESDB_LOCAL_PORT:$POSTGRESDB_DOCKER_PORT
     volumes:
       - db:/var/lib/postgresql/data
-    networks:
-      - shared_network
+    # networks:
+    #   - shared_network
   node-application:
     build:
       context: ./  # Set project root as build context
@@ -46,9 +45,9 @@ services:
       PGADMIN_DEFAULT_PASSWORD: admin
     volumes:
       - pgadmin-data:/var/lib/pgadmin
-    networks:
-      - shared_network
-  # expo-app:
+  #   networks:
+  #     - shared_network
+  # # expo-app:
   #   build: ./app
   #   container_name: expo-app
   #   ports:
@@ -68,6 +67,6 @@ volumes:
   node-volume:
     driver: local
   pgadmin-data:
-networks:
-  shared_network:
-    driver: bridge
+# networks:
+#   shared_network:
+#     driver: bridge
