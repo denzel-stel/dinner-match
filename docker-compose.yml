@@ -3,22 +3,27 @@ services:
   postgresdb:
     
     restart: unless-stopped
-    env_file: ../.env
+    env_file: .env
     image: postgres
     environment:
       - POSTGRES_USER=$POSTGRESDB_USER
       - POSTGRES_PASSWORD=$POSTGRESDB_ROOT_PASSWORD
       - POSTGRES_DB=$POSTGRESDB_DATABASE
-  node-application:
-    build: api
-    container_name: node-application
     ports:
-      - "9000:3000"
+      - $POSTGRESDB_LOCAL_PORT:$POSTGRESDB_DOCKER_PORT
+    volumes:
+      - db:/var/lib/postgresql/data
+  node-application:
+    build:
+      context: ./  # Set project root as build context
+      dockerfile: ./docker/api/Dockerfile  # Path to Dockerfile
+    container_name: node-application
     depends_on:
       - postgresdb
-    build: ./bezkoder-app
     restart: unless-stopped
-    env_file: ../.env
+    env_file: .env
+    # volumes:
+    #   - ./:/root
     ports:
       - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
     environment:
@@ -27,20 +32,6 @@ services:
       - DB_PASSWORD=${POSTGRESDB_ROOT_PASSWORD}
       - DB_NAME=${POSTGRESDB_DATABASE}
       - DB_PORT=${POSTGRESDB_DOCKER_PORT}
-    restart: always
-
-  postgresdb:
-    image: postgres
-    restart: unless-stopped
-    env_file: ../.env
-    environment:
-      - POSTGRES_USER=${POSTGRESDB_USER}
-      - POSTGRES_PASSWORD=${POSTGRESDB_ROOT_PASSWORD}
-      - POSTGRES_DB=${POSTGRESDB_DATABASE}
-    ports:
-      - "${POSTGRESDB_LOCAL_PORT}:${POSTGRESDB_DOCKER_PORT}"
-    volumes:
-      - db:/var/lib/postgresql/data
 
   # expo-app:
   #   build: ./app
@@ -58,3 +49,7 @@ services:
 
 volumes:
   db:
+    driver: local
+  # node-volume:
+  #   driver: local
+ 

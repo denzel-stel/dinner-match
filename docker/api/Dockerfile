@@ -1,12 +1,14 @@
 FROM node:18
 
-WORKDIR /app
+WORKDIR /dinner_match/
 
-COPY package*.json ./
+# copy entire project
+COPY . . 
+# change directory to ./api
+
+WORKDIR /dinner_match/api
 
 RUN npm install
-
-COPY . .
 
 EXPOSE 3000
 

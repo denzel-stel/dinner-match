@@ -1,11 +1,11 @@
 up:
-	docker compose up -d
+	docker compose --env-file .env up -d
 
 down:
 	docker compose down
 
 build:
-	docker compose build
+	docker compose build --no-cache
 
 logs:
 	docker compose logs -f
