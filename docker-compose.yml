@@ -45,21 +45,6 @@ services:
       PGADMIN_DEFAULT_PASSWORD: admin
     volumes:
       - pgadmin-data:/var/lib/pgadmin
-  #   networks:
-  #     - shared_network
-  # # expo-app:
-  #   build: ./app
-  #   container_name: expo-app
-  #   ports:
-  #     - "19000:19000"
-  #     - "19001:19001"
-  #     - "19002:19002"
-  #   volumes:
-  #     - ./app:/app
-  #     - /app/node_modules
-  #   environment:
-  #     - EXPO_DEVTOOLS_LISTEN_ADDRESS=0.0.0.0
-  #   restart: always
 
 volumes:
   db:
@@ -67,6 +52,3 @@ volumes:
   node-volume:
     driver: local
   pgadmin-data:
-# networks:
-#   shared_network:
-#     driver: bridge
