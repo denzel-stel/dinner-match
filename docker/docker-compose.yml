@@ -1,11 +1,10 @@
-version: '3.8'
-
 services:
   
   postgresdb:
     
     restart: unless-stopped
-    env_file: ./.envimage: postgres
+    env_file: ../.env
+    image: postgres
     environment:
       - POSTGRES_USER=$POSTGRESDB_USER
       - POSTGRES_PASSWORD=$POSTGRESDB_ROOT_PASSWORD
@@ -19,7 +18,7 @@ services:
       - postgresdb
     build: ./bezkoder-app
     restart: unless-stopped
-    env_file: ./.env
+    env_file: ../.env
     ports:
       - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
     environment:
