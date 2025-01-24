@@ -9,11 +9,11 @@ services:
       - POSTGRES_USER=$POSTGRESDB_USER
       - POSTGRES_PASSWORD=$POSTGRESDB_ROOT_PASSWORD
       - POSTGRES_DB=$POSTGRESDB_DATABASE
+  node-application:
+    build: api
+    container_name: node-application
     ports:
-      - $POSTGRESDB_LOCAL_PORT:$POSTGRESDB_DOCKER_PORT
-    volumes:
-      - db:/var/lib/postgres
-  app:
+      - "9000:3000"
     depends_on:
       - postgresdb
     build: ./bezkoder-app
@@ -23,12 +23,38 @@ services:
       - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
     environment:
       - DB_HOST=postgresdb
-      - DB_USER=$POSTGRESDB_USER
-      - DB_PASSWORD=$POSTGRESDB_ROOT_PASSWORD
-      - DB_NAME=$POSTGRESDB_DATABASE
-      - DB_PORT=$POSTGRESDB_DOCKER_PORT
-    stdin_open: true
-    tty: true
+      - DB_USER=${POSTGRESDB_USER}
+      - DB_PASSWORD=${POSTGRESDB_ROOT_PASSWORD}
+      - DB_NAME=${POSTGRESDB_DATABASE}
+      - DB_PORT=${POSTGRESDB_DOCKER_PORT}
+    restart: always
 
-volumes: 
+  postgresdb:
+    image: postgres
+    restart: unless-stopped
+    env_file: ../.env
+    environment:
+      - POSTGRES_USER=${POSTGRESDB_USER}
+      - POSTGRES_PASSWORD=${POSTGRESDB_ROOT_PASSWORD}
+      - POSTGRES_DB=${POSTGRESDB_DATABASE}
+    ports:
+      - "${POSTGRESDB_LOCAL_PORT}:${POSTGRESDB_DOCKER_PORT}"
+    volumes:
+      - db:/var/lib/postgresql/data
+
+  # expo-app:
+  #   build: ./app
+  #   container_name: expo-app
+  #   ports:
+  #     - "19000:19000"
+  #     - "19001:19001"
+  #     - "19002:19002"
+  #   volumes:
+  #     - ./app:/app
+  #     - /app/node_modules
+  #   environment:
+  #     - EXPO_DEVTOOLS_LISTEN_ADDRESS=0.0.0.0
+  #   restart: always
+
+volumes:
   db:
