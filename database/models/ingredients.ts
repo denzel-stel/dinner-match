@@ -2,14 +2,9 @@ import { date, integer, PgDate, pgTable, serial, text, varchar } from 'drizzle-o
 import { usersTable } from './users';
 import { title } from 'process';
 import { relations } from 'drizzle-orm';
+import { recipesTable } from './recipes';
 
 // Generate this schema in the format of edamam
-
-export const recipesTable = pgTable('recipes', {
-    id: serial('id').primaryKey(),
-    title: varchar('title', { length: 255 }).notNull(),
-    calories: integer('calories').notNull(),
-});
 
 export const ingredientsTable = pgTable('ingredients', {
     id: serial('id').primaryKey(),

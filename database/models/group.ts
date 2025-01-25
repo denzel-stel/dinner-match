@@ -1,5 +1,5 @@
 import { date, integer, PgDate, pgTable, serial, text, varchar } from 'drizzle-orm/pg-core';
-import { usersTable } from './user';
+import { usersTable } from './users';
 
 export const groupsTable = pgTable('groups', {
     id: serial('id').primaryKey(),
