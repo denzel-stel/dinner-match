@@ -1,7 +1,7 @@
 // src/index.ts
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
-import {usersTable} from "../database/models/user";
+import {usersTable} from "../database/models/users";
 import 'dotenv/config';
 import { drizzle } from 'drizzle-orm/node-postgres';
 import { eq } from "drizzle-orm";
