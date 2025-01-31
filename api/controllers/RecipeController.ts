@@ -1,5 +1,5 @@
 import {Request, Response} from "express";
-import {recipesTable} from "../../database/models/recipes";
+import {recipesTable} from "../../database/tables/recipes";
 import RecipeRepository from "../repositories/RecipeRepository";
 
 
@@ -12,6 +12,10 @@ class RecipeController {
 
     public getAll = async (req: Request, res: Response) => {
         return this.recipeRepository.getAll(req, res);
+    }
+
+    getById() {
+
     }
 }
 

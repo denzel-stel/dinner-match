@@ -1,8 +1,5 @@
 import { date, integer, PgDate, pgTable, serial, text, varchar } from 'drizzle-orm/pg-core';
-import { usersTable } from './users';
-import { title } from 'process';
 import { relations } from 'drizzle-orm';
-
 // Generate this schema in the format of edamam
 
 export const recipesTable = pgTable('recipes', {

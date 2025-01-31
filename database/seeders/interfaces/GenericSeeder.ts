@@ -1,0 +1,3 @@
+interface  GenericSeeder {
+     run(): void;
+}

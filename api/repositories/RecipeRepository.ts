@@ -1,5 +1,5 @@
 import {Request, Response} from "express";
-import {recipesTable} from "../../database/models/recipes";
+import {recipesTable} from "../../database/tables/recipes";
 import database from "../database";
 
 class RecipeRepository {
