@@ -1,24 +1,26 @@
-import { date, integer, PgDate, pgTable, serial, text, varchar } from 'drizzle-orm/pg-core';
+import {date, integer, PgDate, pgTable, serial, text, timestamp, varchar} from 'drizzle-orm/pg-core';
 import { relations } from 'drizzle-orm';
 // Generate this schema in the format of edamam
 
-export const recipesTable = pgTable('recipes', {
+export const recipesTable = pgTable("recipes", {
     id: serial('id').primaryKey(),
-    title: varchar('title', { length: 255 }).notNull(),
+    name: varchar('name', { length: 255 }).notNull(),
     calories: integer('calories').notNull(),
+    description: text('description').notNull(),
+    created_at: timestamp('created_at').notNull().defaultNow(),
 });
 
 export const ingredientsTable = pgTable('ingredients', {
     id: serial('id').primaryKey(),
     name: varchar('name', { length: 255 }).notNull(),
-    quantity: integer('quantity').notNull(),
     unit: varchar('unit', { length: 255 }).notNull(),
+    created_at: timestamp('created_at').notNull().defaultNow(),
 });
 
 export const recipesIngredientsPivotTable = pgTable('recipes_ingredients', {
     id: serial('id').primaryKey(),
-    recipe_id: integer('recipe_id').notNull().references(() => recipesTable.id),
-    ingredient_id: integer('ingredient_id').notNull().references(() => ingredientsTable.id),
+    recipe_id: integer('recipe_id').notNull().references(() => recipesTable.id).notNull(),
+    ingredient_id: integer('ingredient_id').notNull().references(() => ingredientsTable.id).notNull(),
     quantity: integer('quantity').notNull(),
 });
 export const ingredientsRecipeRelation = relations(recipesIngredientsPivotTable, ({ one }) => ({

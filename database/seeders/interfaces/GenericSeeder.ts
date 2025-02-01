@@ -1,3 +1,3 @@
-interface  GenericSeeder {
+export interface GenericSeeder {
      run(): void;
 }

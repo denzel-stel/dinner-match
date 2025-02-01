@@ -2,8 +2,9 @@ import {Recipe} from "../models/Recipe";
 import { faker } from '@faker-js/faker';
 import {Ingredient} from "../models/Ingredient";
 import database from "../../api/database";
-import {ingredientsTable, recipesTable} from "../tables/recipes";
-
+import {ingredientsTable, recipesIngredientsPivotTable, recipesTable} from "../tables/recipes";
+import {GenericSeeder} from "./interfaces/GenericSeeder";
+import { IngredientsRecipes } from "../models/IngredientsRecipes";
 /**
  * Seeder for the recipes table
  */
@@ -12,42 +13,64 @@ class RecipesSeeder implements GenericSeeder {
         for(let i = 0; i < 10; i++) {
             const recipe = this.buildRecipe();
 
-            const insertedRow: Recipe = await database
+            const insertedRow = await database
                 .insert(recipesTable)
-                .values(recipe)
+                .values([recipe])
                 .returning();
 
+
             for(let i = 0; i < faker.number.int({min: 1, max: 15}); i++) {
-                const ingredient = this.buildIngredient(insertedRow);
-                await database.insert(ingredientsTable)
-                    .values(ingredient);
+                const ingredient = this.buildIngredient();
+                const insertedIngredient = await database
+                    .insert(ingredientsTable)
+                    .values([ingredient])
+                    .returning();
+
+                const ingredientRecipeRelation = this.buildIngredientRecipeRelation(
+                    insertedRow[0], 
+                    insertedIngredient[0]
+                );
+
+                if (!ingredientRecipeRelation) continue;
+                
+                await database
+                    .insert(recipesIngredientsPivotTable)
+                    .values(ingredientRecipeRelation);
             }
 
         }
     }
 
     private buildRecipe(): Recipe {
+        let recipeName: string = faker.food.adjective() + " " + faker.food.dish();
+        recipeName.toLowerCase();
+        recipeName.charAt(0).toUpperCase();
         return {
-            name: faker.food.adjective() + " " + faker.food.dish(),
+            name: recipeName,
             calories: faker.number.int({min: 100, max: 1000}),
-            ingredients: [],
-            createdAt: new Date(),
-            updatedAt: new Date(),
             description: faker.food.description(),
-            instructions: faker.lorem.paragraph(),
-            userId: 1
         }
     }
 
-    private buildIngredient(recipe: Recipe): Ingredient {
+    private buildIngredientRecipeRelation(recipe: Recipe, ingredient: Ingredient): IngredientsRecipes | null {
+        if(!recipe.id || !ingredient.id) return null;
+
+        return {
+            recipe_id: recipe.id,
+            ingredient_id: ingredient.id,
+            quantity: faker.number.int({min: 1, max: 1000}),
+        }
+    }
+    private buildIngredient(): Ingredient {
         return {
             name: faker.food.ingredient(),
-            quantity: faker.number.int({min: 1, max: 10}),
-            unit: faker.science.unit().name,
-            createdAt: new Date(),
-            updatedAt: new Date(),
-            recipeId: recipe.id
+            unit: this.getRandomWeightOrVolume(),
         }
+    }
+    
+    private getRandomWeightOrVolume() {
+        const units = ["oz", "kg", "ml"];
+        return faker.helpers.arrayElement(units); // Randomly pick a unit
     }
 }
 

@@ -1,0 +1,6 @@
+[submodule "api"]
+	path = ./api
+	url = git@github.com:denzel-stel/dinner-match-api.git
+[submodule "app"]
+	path = ./api
+	url = git@github.com:denzel-stel/dinner-match-expo.git
