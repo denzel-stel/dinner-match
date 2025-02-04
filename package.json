@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "@faker-js/faker": "^9.4.0",
+    "@stytch/react": "^19.2.0",
+    "@stytch/vanilla-js": "^5.14.0",
     "dotenv": "^16.4.7",
     "drizzle-kit": "^0.30.2",
     "drizzle-orm": "^0.38.4",
