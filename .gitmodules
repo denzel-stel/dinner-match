@@ -4,3 +4,6 @@
 [submodule "app"]
 	path = ./api
 	url = git@github.com:denzel-stel/dinner-match-expo.git
+[submodule "database"]
+	path = ./database
+	url = git@github.com:denzel-stel/dinner-match-expo.git

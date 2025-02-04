@@ -1,0 +1,11 @@
+{
+  "name": "dinner-match-database",
+  "version": "1.0.0",
+  "description": "The shared database modules of dinner match application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
