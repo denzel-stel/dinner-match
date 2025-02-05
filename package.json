@@ -1,15 +1,9 @@
 {
   "dependencies": {
-    "@faker-js/faker": "^9.4.0",
-    "@stytch/react": "^19.2.0",
-    "@stytch/vanilla-js": "^5.14.0",
-    "dotenv": "^16.4.7",
-    "drizzle-kit": "^0.30.2",
-    "drizzle-orm": "^0.38.4",
+    "eslint": "^9.19.0",
+    "typescript-eslint": "^8.23.0",
+    "drizzle-orm": "^0.39.1",
     "drizzle-seed": "^0.3.0",
-    "pg": "^8.13.1"
-  },
-  "devDependencies": {
-    "@types/node": "^22.10.10"
+    "faker": "^6.6.6"
   }
 }

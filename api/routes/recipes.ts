@@ -1,7 +1,10 @@
 import RecipeController from "../controllers/RecipeController";
 import {expressApp} from "../api";
+import checkAuthenticated from "../middleware/authentication";
 
 const recipeController = new RecipeController();
 
-expressApp.get("/recipes", recipeController.getAll);
-expressApp.get("/recipes/:id", recipeController.getById);
+expressApp.use("/auth/", checkAuthenticated);
+
+expressApp.get("/auth/recipes", recipeController.getAll);
+expressApp.get("/auth/recipes/:id", recipeController.getById);
