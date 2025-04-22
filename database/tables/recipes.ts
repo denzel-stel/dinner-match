@@ -7,14 +7,14 @@ export const recipesTable = pgTable("recipes", {
     name: varchar('name', { length: 255 }).notNull(),
     calories: integer('calories').notNull(),
     description: text('description').notNull(),
-    created_at: timestamp('created_at').notNull().defaultNow(),
+    // created_at: timestamp('created_at').notNull().defaultNow(),
 });
 
 export const ingredientsTable = pgTable('ingredients', {
     id: serial('id').primaryKey(),
     name: varchar('name', { length: 255 }).notNull(),
     unit: varchar('unit', { length: 255 }).notNull(),
-    created_at: timestamp('created_at').notNull().defaultNow(),
+    // created_at: timestamp('created_at').notNull().defaultNow(),
 });
 
 export const recipesIngredientsPivotTable = pgTable('recipes_ingredients', {

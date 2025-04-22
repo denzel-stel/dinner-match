@@ -1,10 +1,10 @@
-import {Recipe} from "../models/Recipe";
+import {NewRecipe, Recipe} from "../models/Recipe";
 import { faker } from '@faker-js/faker';
-import {Ingredient} from "../models/Ingredient";
+import {Ingredient, NewIngredient} from "../models/Ingredient";
 import database from "../../api/database";
 import {ingredientsTable, recipesIngredientsPivotTable, recipesTable} from "../tables/recipes";
 import {GenericSeeder} from "./interfaces/GenericSeeder";
-import { IngredientsRecipes } from "../models/IngredientsRecipes";
+import { NewIngredientsRecipes } from "../models/IngredientsRecipes";
 /**
  * Seeder for the recipes table
  */
@@ -41,8 +41,8 @@ class RecipesSeeder implements GenericSeeder {
         }
     }
 
-    private buildRecipe(): Recipe {
-        let recipeName: string = faker.food.adjective() + " " + faker.food.dish();
+    private buildRecipe(): NewRecipe {
+        const recipeName: string = faker.food.adjective() + " " + faker.food.dish();
         recipeName.toLowerCase();
         recipeName.charAt(0).toUpperCase();
         return {
@@ -52,7 +52,7 @@ class RecipesSeeder implements GenericSeeder {
         }
     }
 
-    private buildIngredientRecipeRelation(recipe: Recipe, ingredient: Ingredient): IngredientsRecipes | null {
+    private buildIngredientRecipeRelation(recipe: Recipe, ingredient: Ingredient): NewIngredientsRecipes | null {
         if(!recipe.id || !ingredient.id) return null;
 
         return {
@@ -61,7 +61,7 @@ class RecipesSeeder implements GenericSeeder {
             quantity: faker.number.int({min: 1, max: 1000}),
         }
     }
-    private buildIngredient(): Ingredient {
+    private buildIngredient(): NewIngredient {
         return {
             name: faker.food.ingredient(),
             unit: this.getRandomWeightOrVolume(),

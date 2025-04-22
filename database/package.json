@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@faker-js/faker": "^9.4.0"
+    "@faker-js/faker": "^9.4.0",
+    "dotenv": "^16.4.7",
+    "drizzle-kit": "^0.30.4"
   }
 }
