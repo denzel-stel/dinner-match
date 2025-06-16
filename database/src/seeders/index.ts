@@ -1,6 +1,9 @@
-import {reset, seed} from "drizzle-seed";
-import database from "../../api/database";
-import RecipesSeeder from "./RecipesSeeder";
+// Class that imports all seeders from database module
+// and runs them
+
+import {reset} from "drizzle-seed";
+import database from "../database";
+import RecipesSeeder from "../seeders/RecipesSeeder";
 import schema from "../tables/schema";
 import {GenericSeeder} from "./interfaces/GenericSeeder";
 
@@ -16,3 +19,4 @@ export class SeedManager {
     }
 }
 
+export const seedManager = new SeedManager();

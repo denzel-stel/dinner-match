@@ -1,7 +1,12 @@
 {
     "compilerOptions": {
         "esModuleInterop": true,
-    },
-    "include": ["./**/*.ts", "**/*.tsx"],
+        "module": "NodeNext",       // Use modern Node.js module resolution
+        "moduleResolution": "NodeNext",
+        "target": "ES2020",         // Modern JavaScript features
+        "allowSyntheticDefaultImports": true,
+        "allowImportingTsExtensions": true
+      },
+    "include": ["./**/*.ts", "**/*.tsx", "api/services/AuthenticationSessionService.ts"],
     "exclude": ["node_modules",]
 }

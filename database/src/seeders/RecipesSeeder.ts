@@ -1,7 +1,7 @@
 import {NewRecipe, Recipe} from "../models/Recipe";
 import { faker } from '@faker-js/faker';
 import {Ingredient, NewIngredient} from "../models/Ingredient";
-import database from "../../api/database";
+import database from "../database";
 import {ingredientsTable, recipesIngredientsPivotTable, recipesTable} from "../tables/recipes";
 import {GenericSeeder} from "./interfaces/GenericSeeder";
 import { NewIngredientsRecipes } from "../models/IngredientsRecipes";

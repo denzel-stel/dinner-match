@@ -21,7 +21,7 @@ services:
     container_name: node-application
     depends_on:
       - postgresdb
-    restart: always
+    restart: "no"
     env_file: .env
     volumes:
       - ./:/dinner_match/
