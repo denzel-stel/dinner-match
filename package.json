@@ -4,7 +4,9 @@
     "drizzle-seed": "^0.3.0",
     "eslint": "^9.19.0",
     "faker": "^6.6.6",
+    "inversify": "^7.0.0-alpha.5",
     "pg": "^8.13.1",
+    "reflect-metadata": "^0.2.2",
     "typescript-eslint": "^8.23.0"
   }
 }
