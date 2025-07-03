@@ -1,7 +1,10 @@
-import UserRepository from "../repositories/UserRepository";
+import UserRepository from "#database/src/repositories/UserRepository";
 import { Request, Response } from "express";
+import UserControllerInterface from "./interfaces/UserControllerInterface";
+import { injectable } from "inversify";
 
-class UserController {
+@injectable()
+class UserController implements UserControllerInterface {
     async getUserByStytch(req: Request, res: Response): Promise<void> {
         
         const user = await UserRepository.getByStytchId(req.params.uuid);
@@ -29,8 +32,8 @@ class UserController {
     }
 
     async create(req: Request, res: Response): Promise<void> {
-        console.log("body" + JSON.stringify(req.body))
-        res.send(null);
+        // Call service with req.body to create a new user
+
         // const user = await UserRepository.create(req.body);
         // res.send(user);
     }
