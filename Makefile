@@ -18,6 +18,11 @@ restart:
 clean:
 	docker compose down -v
 	docker system prune -f
-
+database-clean:
+	cd database && \
+	npx drizzle-kit push --config ./src/drizzle.config.ts
+database-migrations:
+	cd database && \
+	npx drizzle-kit generate --config ./src/drizzle.config.ts
 db-shell:
 	docker compose exec postgresdb psql -U ${POSTGRESDB_USER} -d ${POSTGRESDB_DATABASE}
