@@ -1,0 +1,32 @@
+{
+  "name": "dinner-match-database",
+  "version": "1.0.0",
+  "description": "The shared database modules of dinner match application",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./connection": "./dist/database.js",
+    "./seeders": "./dist/seeders/index.js",
+    "./tables": "./dist/tables/index.js",
+    "./models": "./dist/models/index.js",
+    "./repositories": "./dist/repositories/index.js",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@faker-js/faker": "^9.4.0",
+    "@oslojs/crypto": "^1.0.1",
+    "dotenv": "^16.4.7",
+    "drizzle-kit": "^0.30.4",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.18"
+  }
+}
