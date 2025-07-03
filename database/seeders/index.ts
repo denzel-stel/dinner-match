@@ -3,7 +3,7 @@
 
 import {reset} from "drizzle-seed";
 import database from "../database";
-import RecipesSeeder from "../seeders/RecipesSeeder";
+import RecipesSeeder from "./RecipesSeeder";
 import schema from "../tables/schema";
 import {GenericSeeder} from "./interfaces/GenericSeeder";
 

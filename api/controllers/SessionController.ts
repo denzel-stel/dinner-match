@@ -1,5 +1,5 @@
 import SessionRepository from "../repositories/SessionRepository";
-import UserRepository from "../repositories/UserRepository";
+import UserRepository from "#database/src/repositories/UserRepository";
 import { Request, Response } from "express";
 
 class SessionController {

@@ -1,4 +1,4 @@
-import { User } from "../../database/src/models";
+import { User } from "../../database/models";
 import UserServiceInterface from "../interfaces/UserServiceInterface";
 
 class UserService implements UserServiceInterface {
