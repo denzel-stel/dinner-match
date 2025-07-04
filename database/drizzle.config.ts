@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config({ path: '../.env', debug: true });
 export default defineConfig({
   out: './migrations/',
-  schema: './src/tables/*',
+  schema: './tables/*',
   dialect: 'postgresql',
   dbCredentials: {
     url: process.env.DATABASE_URL!,

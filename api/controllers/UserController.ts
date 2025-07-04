@@ -1,10 +1,16 @@
-import UserRepository from "#database/src/repositories/UserRepository";
+import UserRepository from "#database/repositories/UserRepository.js";
 import { Request, Response } from "express";
 import UserControllerInterface from "./interfaces/UserControllerInterface";
-import { injectable } from "inversify";
-
+import { injectable, inject } from "inversify";
+import UserService from "#services/implementations/UserService.js";
 @injectable()
 class UserController implements UserControllerInterface {
+
+    constructor(
+        @inject(Contracts.UserService) private userService: UserService
+    ) {
+        this.userService = userService;
+    }
     async getUserByStytch(req: Request, res: Response): Promise<void> {
         
         const user = await UserRepository.getByStytchId(req.params.uuid);
@@ -27,7 +33,7 @@ class UserController implements UserControllerInterface {
         if (user ==null) {
             res.status(404).send("User not found");
             return;
-        }
+        } 
         res.send(user);
     }
 
@@ -39,4 +45,4 @@ class UserController implements UserControllerInterface {
     }
 }
 
-export default new UserController();
+export default UserController
