@@ -16,4 +16,4 @@ WORKDIR /dinner_match/api
 
 EXPOSE 3000
 
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "dev-api"]

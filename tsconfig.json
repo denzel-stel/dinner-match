@@ -1,24 +1,34 @@
 {
-    "compilerOptions": {
-        "esModuleInterop": true,
-        "module": "NodeNext",       // Use modern Node.js module resolution
-        "moduleResolution": "NodeNext",
-        "target": "ES2020",         // Modern JavaScript features
-        "allowSyntheticDefaultImports": true,
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true, // Often needed alongside experimentalDecorators for DI frameworks
-        "paths": {
-
-            "#database/*": ["./database/*",],
-
-            "#services/*": ["./services/*",],
-
-            "#api/*":[ "./api/*",],
-
-            "#app/*":[ "./app/*"]
-
-        } ,
-      },
-    "include": ["./**/*.ts", "**/*.tsx", "api/services/AuthenticationSessionService.ts"],
-    "exclude": ["node_modules",]
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "target": "ES2020",
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "paths": {
+      "#database/*": [
+        "./database/*"
+      ],
+      "#services/*": [
+        "./services/*"
+      ],
+      "#api/*": [
+        "./api/*"
+      ],
+      "#app/*": [
+        "./app/*"
+      ]
+    }
+  },
+  "include": [
+    "./**/*.ts",
+    "**/*.tsx",
+    "api/services/AuthenticationSessionService.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "extends": "expo/tsconfig.base"
 }

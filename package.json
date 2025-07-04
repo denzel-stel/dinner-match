@@ -1,6 +1,12 @@
 {
   "name": "dinner-match",
   "version": "1.0.0",
+  "scripts": {
+    "dev-api": "tsx ./api/index.ts",
+    "start-app": "expo start",
+    "android-app": "expo run:android",
+    "ios-app": "expo run:ios"
+  },
   "dependencies": {
     "drizzle-orm": "^0.39.1",
     "drizzle-seed": "^0.3.0",
