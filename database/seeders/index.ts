@@ -2,8 +2,8 @@
 // and runs them
 
 import {reset} from "drizzle-seed";
-import database from "../database";
-import RecipesSeeder from "./RecipesSeeder";
+import database from "#database/database";
+import RecipesSeeder from "#database/seeders/RecipesSeeder.js";
 import schema from "../tables/schema";
 import {GenericSeeder} from "./interfaces/GenericSeeder";
 

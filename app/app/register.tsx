@@ -4,7 +4,7 @@ import PrimaryButton from "@/components/Button";
 import { Alert, Pressable, Text, TextInput, View } from "react-native";
 import { useEffect, useState } from "react";
 import { useNavigation } from "expo-router";
-import { NewUser } from "dinner-match-database/dist/models/User";
+import { NewUser } from "#database/dist/models/User";
 import { createUser } from "@/controllers/users";
 
 const Register = (): JSX.Element => {

@@ -6,3 +6,5 @@ import UserController from "#api/controllers/UserController.js";
 const container: Container = new Container({parent: rootContainer});
 
 container.bind(Contracts.UserController).to(UserController);
+
+export default container;

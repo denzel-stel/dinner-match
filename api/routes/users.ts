@@ -1,8 +1,11 @@
 import { expressApp } from "../api";
 import UserController from "../controllers/UserController";
+import container from "#api/containers/container";
 
-expressApp.get("/auth/users", UserController.getAll);
+const controller = container.get<UserController>("UserController");
 
-expressApp.get("/auth/users/:id", UserController.getById);
+expressApp.get("/auth/users", controller.getAll);
 
-expressApp.post("/users", UserController.create);
+expressApp.get("/auth/users/:id", controller.getById);
+
+expressApp.post("/users", controller.create);

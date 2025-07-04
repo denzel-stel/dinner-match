@@ -1,4 +1,4 @@
-import SessionRepository from "../repositories/SessionRepository";
+import SessionRepository from "#database/repositories/SessionRepository";
 import UserRepository from "#database/repositories/UserRepository";
 import { Request, Response } from "express";
 

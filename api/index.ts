@@ -3,10 +3,10 @@
  * This file imports all the other files in the api directory.
  */
 
-// console.log("Hello world!");
+console.log("Hello world!");
 
 // Run database seeders
-import { seedManager } from "#database/seeders.js";
+import { seedManager } from "#database/seeders/index.js";
 seedManager.runAllFresh().then(() => {
     console.log('Database reset and seeded successfully!');
 }).catch((error) => {
@@ -16,7 +16,7 @@ seedManager.runAllFresh().then(() => {
 // Bootrstrap Express 
 import "./api.ts";
 
-// Register all the middleware;
+// // Register all the middleware;
 import "./middleware";
 
 // Bootstrap routes

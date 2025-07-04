@@ -1,6 +1,6 @@
-import { Recipe } from "dinner-match-database/models";
-import { Session } from "dinner-match-database/models";
-import { User } from "dinner-match-database/models";
+import { Recipe } from "#database/models";
+import { Session } from "#database/models";
+import { User } from "#database/models";
 import SessionRecipesEngineInterface from "./interfaces/SessionRecipesEngineInterface";
 
 class SessionRecipesEngine implements SessionRecipesEngineInterface {

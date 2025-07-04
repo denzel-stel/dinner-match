@@ -1,9 +1,9 @@
 import { encodeBase32LowerCaseNoPadding } from "@oslojs/encoding";
-import {AuthSession} from "dinner-match-database/models";
-import {authSessionsTable} from "dinner-match-database/tables";
-import database from "dinner-match-database/connection";
+import {AuthSession} from "#database/models";
+import {authSessionsTable} from "#database/tables";
+import database from "#database/database";
 import { SessionValidationResult } from "../types/SessionValidationResult";
-import {usersTable} from "dinner-match-database/tables";
+import {usersTable} from "#database/tables";
 import AuthenticationSessionServiceInterface from "./interfaces/AuthenticationSessionServiceInterface";
 import { eq } from "drizzle-orm";
 import OsloHashService from "./OsloHashService";

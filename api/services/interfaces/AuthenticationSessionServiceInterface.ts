@@ -1,4 +1,4 @@
-import { AuthSession } from "dinner-match-database/models";
+import { AuthSession } from "#database/models";
 import { SessionValidationResult } from "../../types/SessionValidationResult";
 
 interface AuthenticationSessionServiceInterface {

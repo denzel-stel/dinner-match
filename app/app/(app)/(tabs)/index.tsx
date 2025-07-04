@@ -1,9 +1,9 @@
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
-import RecipeCard from '@/components/recipes/RecipeCard';
-import {Recipe} from '@dinner_match/database/models/Recipe';
-import SwipeableRecipe from '@/components/recipes/Swipeable';
+import RecipeCard from '#app/components/recipes/RecipeCard';
+import {Recipe} from '#database/models/Recipe.js';
+import SwipeableRecipe from '#app/components/recipes/Swipeable';
 import { useEffect, useState } from 'react';
-import RecipeStackItem from '@/components/recipes/RecipeStackItem';
+import RecipeStackItem from '#app/components/recipes/RecipeStackItem';
 
 import { faker } from '@faker-js/faker';
 
