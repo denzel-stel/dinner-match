@@ -8,10 +8,10 @@ const authSessionsTable = pgTable("auth_sessions", {
 		.notNull()
 		.references(() => usersTable.id),
 	hashedSecret: text("hashed_secret"),
-	expiresAt: timestamp("expires_at", {
+	createdAt: timestamp("created_at", {
 		withTimezone: true,
 		mode: "date"
 	}).notNull()
 });
 
-export { authSessionsTable}; 
+export {  authSessionsTable}; 

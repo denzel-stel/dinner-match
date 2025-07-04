@@ -1,4 +1,3 @@
-import UserRepository from "#database/repositories/UserRepository.js";
 import { Request, Response } from "express";
 import UserControllerInterface from "./interfaces/UserControllerInterface";
 import { injectable, inject } from "inversify";

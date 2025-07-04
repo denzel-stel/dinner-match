@@ -1,4 +1,13 @@
-import { InferSelectModel } from "drizzle-orm";
 import { authSessionsTable } from "../tables/auth_sessions";
+type AuthSession = typeof authSessionsTable.$inferSelect;
+type NewAuthSession = typeof authSessionsTable.$inferInsert;
 
-export type AuthSession = InferSelectModel<typeof authSessionsTable>;
+type AuthSessionWithToken = AuthSession & {
+    token: string;
+};
+
+export {
+    AuthSession,
+    NewAuthSession,
+    AuthSessionWithToken
+}
