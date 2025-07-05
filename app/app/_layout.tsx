@@ -29,7 +29,7 @@ const App = ():JSX.Element => {
   }
   const style = {
     flex: 1,
-    padding: 20,
+    padding: 0,
 };
   return (
     <GestureHandlerRootView>

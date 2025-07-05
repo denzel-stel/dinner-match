@@ -4,7 +4,7 @@ import { View } from "react-native"
 const Container = ({children}: { children: JSX.Element}): JSX.Element => {
     const style = {
         flex: 1,
-        padding: 20,
+        padding: 0,
     };
     return (
         <View style={style}>
