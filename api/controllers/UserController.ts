@@ -3,11 +3,14 @@ import UserControllerInterface from "./interfaces/UserControllerInterface";
 import { injectable, inject } from "inversify";
 import UserService from "#services/implementations/UserService.js";
 import { Contracts } from "#services/containers/contracts.js";
+import AuthSessionServiceInterface from "#services/interfaces/AuthSessionService.js";
 @injectable()
 class UserController implements UserControllerInterface {
     private userService: UserService;
     constructor(
-        @inject(Contracts.UserService) userService: UserService
+        @inject(Contracts.UserService) userService: UserService,
+        @inject(Contracts.AuthSessionService) private authSessionService: AuthSessionServiceInterface,
+
     ) {
         this.userService = userService;
     }
@@ -31,7 +34,13 @@ class UserController implements UserControllerInterface {
         // Call service with req.body to create a new user
         const user = await this.userService.createUser(req.body);
         // const user = await UserRepository.create(req.body);
-        res.send(null);
+        const session = await this.authSessionService.createSessionFor(user);
+
+        // We just send the user and session token back to the client
+        res.send({
+            user, 
+            token: session.token
+        });
     }
 }
 
