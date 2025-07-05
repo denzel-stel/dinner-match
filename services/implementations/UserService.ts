@@ -13,7 +13,15 @@ class UserService implements UserServiceInterface {
     ) {
         this.userRepository = userRepository;
     }
+    async getAll(): Promise<User[]> {
+        const users: User[] = await this.userRepository.getAll();
+        return users;
+    };
 
+    async getById(id: number): Promise<User | null> {
+        const user: User | null = await this.userRepository.getById(id);
+        return user;
+    };
     async createUser(user: NewUser): Promise<User|null> {
         const data = new TextEncoder().encode(user.password);
         const hash = await sha512(data);

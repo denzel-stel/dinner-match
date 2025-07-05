@@ -15,20 +15,20 @@ class UserController implements UserControllerInterface {
         this.userService = userService;
     }
 
-    // async getAll(req: Request, res: Response): Promise<void> {
-    //     const users = await this.userService.getAll();
-    //     res.send(users);
-    // }
+    async getAll(req: Request, res: Response): Promise<void> {
+        const users = await this.userService.getAll();
+        res.send(users);
+    }
 
-    // async getById(req: Request, res: Response): Promise<void> {
-    //     const user = await this.userService.getById(Number(req.params.id));
+    async getById(req: Request, res: Response): Promise<void> {
+        const user = await this.userService.getById(Number(req.params.id));
         
-    //     if (user ==null) {
-    //         res.status(404).send("User not found");
-    //         return;
-    //     } 
-    //     res.send(user);
-    // }
+        if (user == null) {
+            res.status(404).send("User not found");
+            return;
+        } 
+        res.send(user);
+    }
 
     async create(req: Request, res: Response): Promise<void> {
         // Call service with req.body to create a new user
