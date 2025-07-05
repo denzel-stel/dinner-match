@@ -1,10 +1,14 @@
 {
   "name": "dinner-match",
   "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+      "app"
+  ],
   "scripts": {
     "dev-api": "tsx ./api/index.ts",
     "start-app": "expo start",
-    "android-app": "cd app & expo run:android",
+    "android-app": "yarn workspace app expo run:android",
     "ios-app": "expo run:ios",
     "android": "expo run:android",
     "ios": "expo run:ios"
