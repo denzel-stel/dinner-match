@@ -1,8 +1,8 @@
 import { expressApp } from "../api";
-import UserController from "../controllers/UserController";
 import container from "#api/containers/container";
+import UserControllerInterface from "#api/controllers/interfaces/UserControllerInterface.js";
 
-const controller = container.get<UserController>("UserController");
+const controller = container.get<UserControllerInterface>("UserController");
 
 expressApp.get("/auth/users", controller.getAll);
 

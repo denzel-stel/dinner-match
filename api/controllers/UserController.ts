@@ -4,12 +4,19 @@ import { injectable, inject } from "inversify";
 import UserService from "#services/implementations/UserService.js";
 import { Contracts } from "#services/containers/contracts.js";
 import AuthSessionServiceInterface from "#services/interfaces/AuthSessionService.js";
+import HashServiceInterface from "#services/interfaces/HashService.js";
+import database from "#database/database.js";
+import { usersTable } from "#database/tables/users.js";
+import { and, eq } from "drizzle-orm";
+import { SignInRequest } from "#api/types/requests/SignInRequest.js";
+import { User } from "#database/models/User.js";
 @injectable()
 class UserController implements UserControllerInterface {
     private userService: UserService;
     constructor(
         @inject(Contracts.UserService) userService: UserService,
         @inject(Contracts.AuthSessionService) private authSessionService: AuthSessionServiceInterface,
+        @inject(Contracts.HashService) private hashService: HashServiceInterface
 
     ) {
         this.userService = userService;
@@ -30,6 +37,12 @@ class UserController implements UserControllerInterface {
         res.send(user);
     }
 
+    /**
+     * Register a new user
+     * @param req 
+     * @param res 
+     */
+
     async create(req: Request, res: Response): Promise<void> {
         // Call service with req.body to create a new user
         const user = await this.userService.createUser(req.body);
@@ -41,6 +54,35 @@ class UserController implements UserControllerInterface {
             user, 
             token: session.token
         });
+    }
+
+    /**
+     * Sign in a user
+     * @param req 
+     * @param res 
+     */
+    async signIn(req: SignInRequest, res: Response): Promise<void> {
+        const email:string = req.body.email;
+        const password: string = this.hashService.hash(req.body.password);
+
+        // Check if the user is already authenticated
+        const users: User[] =  await database
+            .select()
+            .from(usersTable)
+            .where(and(
+            eq(usersTable.email, email), 
+            eq(usersTable.password, password))
+            );
+
+        // Authenticate the userQ
+        if (!users.length) res.status(404).send("Wrong credentials!");
+        const user: User = users[0];
+
+        // Return a session token for 
+        const session = this.authSessionService.createSessionFor(user);
+
+        // Return session hash 
+        res.status(200).send({session});
     }
 }
 
