@@ -8,7 +8,6 @@
   ],
   "scripts": {
     "dev-api": "tsx ./api/index.ts",
-    "start-app": "npm run start --workspace=app",
     "android-app": "npm run android --workspace=app",
     "ios-app": "npm run ios --workspace=app"
   },

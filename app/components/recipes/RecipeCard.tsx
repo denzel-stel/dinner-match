@@ -3,7 +3,7 @@ import styles from "@/assets/styles/typography";
 import typography from "@/assets/styles/typography";
 import { Image, StyleSheet, Text, View } from "react-native";
 import { isTypedArray } from "util/types";
-import { Recipe} from "@dinner_match/database/models/Recipe";
+import { Recipe} from "database/models/Recipe";
 import { faker } from "@faker-js/faker/.";
 const RecipeCard = ({recipe}:  { recipe: Recipe }) => {
     return (
