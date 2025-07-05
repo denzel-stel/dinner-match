@@ -1,5 +1,10 @@
 import { NewUser, User } from "#database/models/User.js";
 
+/**
+ * Interface defining the contract for user-related service operations.
+ *
+ * Provides methods for retrieving users, creating new users, and fetching user details by ID.
+ */
 export interface UserServiceInterface {
     getUserById(): void;
     getAll(): Promise<User[]>;

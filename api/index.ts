@@ -3,7 +3,6 @@
  * This file imports all the other files in the api directory.
  */
 
-console.log("Hello world!");
 
 // Run database seeders
 import { seedManager } from "#database/seeders/index.js";

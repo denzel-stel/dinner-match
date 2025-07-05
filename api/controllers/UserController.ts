@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import UserControllerInterface from "./interfaces/UserControllerInterface";
 import { injectable, inject } from "inversify";
-import UserService from "#services/implementations/UserService.js";
 import { Contracts } from "#services/containers/contracts.js";
 import AuthSessionServiceInterface from "#services/interfaces/AuthSessionService.js";
 import HashServiceInterface from "#services/interfaces/HashService.js";
@@ -10,17 +9,14 @@ import { usersTable } from "#database/tables/users.js";
 import { and, eq } from "drizzle-orm";
 import { SignInRequest } from "#api/types/requests/SignInRequest.js";
 import { User } from "#database/models/User.js";
+import UserServiceInterface from "#services/interfaces/UserServiceInterface.js";
 @injectable()
 class UserController implements UserControllerInterface {
-    private userService: UserService;
     constructor(
-        @inject(Contracts.UserService) userService: UserService,
+        @inject(Contracts.UserService) private userService: UserServiceInterface,
         @inject(Contracts.AuthSessionService) private authSessionService: AuthSessionServiceInterface,
         @inject(Contracts.HashService) private hashService: HashServiceInterface
-
-    ) {
-        this.userService = userService;
-    }
+    ) {}
 
     async getAll(req: Request, res: Response): Promise<void> {
         const users = await this.userService.getAll();

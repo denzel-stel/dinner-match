@@ -4,12 +4,12 @@ import { NewUser, User } from "#database/models/User.js";
 import { sha512 } from "@oslojs/crypto/sha2";
 import { encodeHexLowerCase } from "@oslojs/encoding";
 import { Contracts } from "#database/containers/contracts.js";
-import UserRepository from "#database/repositories/UserRepository.js";
+import UserRepositoryInterface from "#database/repositories/interfaces.ts/UserRepositoryInterface.js";
 
 @injectable()
 class UserService implements UserServiceInterface {
     constructor(
-        @inject(Contracts.UserRepository) private userRepository: UserRepository,
+        @inject(Contracts.UserRepository) private userRepository: UserRepositoryInterface,
     ) {
         this.userRepository = userRepository;
     }

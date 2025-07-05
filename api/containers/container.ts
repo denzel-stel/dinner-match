@@ -6,6 +6,7 @@ import UserControllerInterface from "#api/controllers/interfaces/UserControllerI
 
 const container: Container = new Container({parent: rootContainer});
 
-container.bind<UserControllerInterface>(Contracts.UserController).to(UserController);
+console.log("Container initialized for API controllers");
+container.bind<UserControllerInterface>(Contracts.UserController).to(UserController).inSingletonScope();
 
 export default container;
