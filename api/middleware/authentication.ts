@@ -1,7 +1,8 @@
 import { NextFunction, Request, Response } from "express";
-import AuthenticationSessionService from "../services/AuthenticationSessionService";
 import { SessionValidationResult } from "../types/SessionValidationResult";
 import { AuthRequest } from "../requests/AuthRequest";
+import container from "#services/containers/container.js";
+import AuthSessionService from "#services/interfaces/AuthSessionService.js";
 
 
 export default  async function checkAuthenticated(req: AuthRequest, res: Response, next:NextFunction)  {
@@ -10,7 +11,10 @@ export default  async function checkAuthenticated(req: AuthRequest, res: Respons
             throw new Error("User unauthenticated.")
         }
         const token = req.headers.session_token as string;
-        const result: SessionValidationResult = await AuthenticationSessionService.validateSessionToken(token);
+        
+        const authSessionService = container.get<AuthSessionService>("AuthSessionService");
+        const result: SessionValidationResult = await authSessionService.validateSessionToken(token);
+        
         if (result.session === null) {
             throw new Error("User unauthenticated.")
         }
