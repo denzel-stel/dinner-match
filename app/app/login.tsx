@@ -1,7 +1,7 @@
 import typographyStyles from "@/assets/styles/typography";
 import inputStyles from "@/assets/styles/input";
 import PrimaryButton from "@/components/Button";
-import { Pressable, Text, TextInput, View } from "react-native";
+import { Button, Pressable, Text, TextInput, View } from "react-native";
 import { useState } from "react";
 import { Link, useNavigation } from "expo-router";
 
@@ -27,6 +27,9 @@ const LogIn = (): JSX.Element => {
             ...typographyStyles.h1,
             paddingBottom: 10,
         }}>Inloggen</Text>
+        <PrimaryButton onClick={() => navigation.navigate('(tabs)')}>
+          Hekki
+        </PrimaryButton>
         <Text style={inputStyles.label}>Email</Text>
         <TextInput
         placeholder="Enter email"
