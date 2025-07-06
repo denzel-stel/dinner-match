@@ -37,17 +37,7 @@ export default function Recipes() {
     <View>
       <SessionHeader />
       <View style={styles.container}>
-        <RecipeStackItem index={1} key={currentRecipeIndex + 1}>
-          <RecipeCard recipe={recipeList[currentRecipeIndex + 1]} />
-        </RecipeStackItem>
-        <RecipeStackItem index={0} key={currentRecipeIndex}>
-          <SwipeableRecipe
-            onSwipeLeft={onSwipeLeft}
-            onSwipeRight={onSwipeRight}
-          >
-            <RecipeCard recipe={recipeList[currentRecipeIndex]} />
-          </SwipeableRecipe>
-        </RecipeStackItem>
+          
       </View>
     </View>
   );
