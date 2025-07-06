@@ -5,7 +5,7 @@ import SwipeableRecipe from "@/components/recipes/Swipeable";
 import { useEffect, useState } from "react";
 import RecipeStackItem from "@/components/recipes/RecipeStackItem";
 import { faker } from "@faker-js/faker";
-import SessionHeader from "@/components/recipes/SessionHeader";
+import SessionHeader from "@/components/sessions/SessionHeader";
 import ColorScheme from "@/constants/ColorScheme";
 import Button from "@/components/Button";
 import Container from "@/components/Container";
