@@ -24,8 +24,8 @@ export default function TabLayout() {
         tabBarStyle: {
           borderTopLeftRadius: 16,
           borderTopRightRadius: 16,
-          height: 55,
-          backgroundColor: colors.backgroundColor,
+          height: 60,
+          backgroundColor: "white",
       
         },
         tabBarBackground: () => null,

@@ -7,18 +7,29 @@ import { Recipe } from "database/models/Recipe";
 import { faker } from "@faker-js/faker/.";
 import typographyStyle from '@/assets/styles/typography';
 import Card from "../Card";
+import LikedBy from "./LikedBy";
 const RecipeCard = ({ recipe }: { recipe: Recipe }) => {
   return (
     <View>
-      <Card>
+      <View style={style.card}>
         <Image
           style={style.thumbnail}
           source={{
             uri: "https://picsum.photos/200/300",
           }}
         ></Image>
-        <Text style={{...typographyStyle.h3}}>Butter chicken</Text>
-      </Card>
+        <View style={style.container}>
+          <Text style={{...typographyStyle.h3}}>Butter chicken</Text>
+          <View style={{flexDirection: "row", gap: 8,}}>
+            <Text style={typographyStyle.label}>15 min</Text>
+            <Text style={typographyStyle.label}>3 euro</Text>
+            <Text style={typographyStyle.label}>432 kcal</Text>
+          </View>
+          <View style={{flexDirection: "row", gap: 8}}>
+            <LikedBy session={null}/>
+          </View>
+        </View>
+      </View>
     </View>
   );
 };
@@ -26,16 +37,19 @@ const RecipeCard = ({ recipe }: { recipe: Recipe }) => {
 const style = StyleSheet.create({
   card: {
     backgroundColor: "white",
-    padding: 20,
-    borderRadius: 16,
+    padding: 8,
+    borderRadius: 24,
     boxShadow: "3px 6px 25px 4px rgba(0,0,0,0.06)",
   },
   thumbnail: {
+    aspectRatio: "1/1",
     width: "100%",
-    height: 400,
     backgroundColor: colors.tintColor,
     borderRadius: 16,
-    padding: 1,
   },
+  container: {
+    padding: 8,
+  }
 });
+
 export default RecipeCard;

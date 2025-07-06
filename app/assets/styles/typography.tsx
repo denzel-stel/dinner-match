@@ -14,6 +14,8 @@ const styles = StyleSheet.create({
     },
     h3: {
         fontSize: 22,
+        fontFamily: "RobotoSerif_400Regular",
+        color: "#383838",
     },
     label: {
         fontSize: 16,
