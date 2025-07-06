@@ -14,12 +14,20 @@ function TabBarIcon(props: {
 export default function TabLayout() {
   return (
     <Tabs
+    
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: 'tomato',
         sceneStyle: {
           padding: 16,
           backgroundColor: colors.backgroundColor
+        },
+        tabBarStyle: {
+          borderTopLeftRadius: 16,
+          borderTopRightRadius: 16,
+          padding: 16,
+          borderColor: "white",
+          height: 60,
         }
     }}
 >

@@ -5,14 +5,17 @@ import { Image, StyleSheet, Text, View } from "react-native";
 import { isTypedArray } from "util/types";
 import { Recipe} from "database/models/Recipe";
 import { faker } from "@faker-js/faker/.";
+import Card from "../Card";
 const RecipeCard = ({recipe}:  { recipe: Recipe }) => {
     return (
         <View style={style.wrapper}>
-            <Image style={style.thumbnail} source={{
+            {/* <Image style={style.thumbnail} source={{
                     uri: "https://picsum.photos/200/300"
-                }} ></Image>
-            <View style={style.card}>
-                
+                }} ></Image> */}
+            <Card>
+                <Text>Hello world</Text>
+            </Card>
+            <View style={style.card}>   
                 <Text style={typography.h1}>{recipe.name}</Text>
             </View>
         </View>
@@ -37,8 +40,8 @@ const style = StyleSheet.create({
         padding: 1
     },
     wrapper: {
-        // width: "100%",
-        // height: "80%",
+        width: "100%",
+        height: "80%",
     }
 })
 export default RecipeCard;
