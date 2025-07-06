@@ -3,4 +3,4 @@ const colors = {
     danger: "#FF7A7A"
 }
 
-export default ColorScheme;
+export default colors;

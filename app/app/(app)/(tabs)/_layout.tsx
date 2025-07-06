@@ -19,7 +19,7 @@ export default function TabLayout() {
         headerShown: false,
         tabBarActiveTintColor: 'tomato',
         sceneStyle: {
-          padding: 16,
+          padding: 0,
           backgroundColor: colors.backgroundColor
         },
         tabBarStyle: {
