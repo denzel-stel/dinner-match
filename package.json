@@ -4,10 +4,12 @@
   "private": true,
   "workspaces": [
     "./app",
-    "./database"
+    "./database",
+    "./api",
+    "./services"
   ],
   "scripts": {
-    "dev-api": "tsx ./api/index.ts",
+    "dev-api": "npm run dev --workspace=api",
     "android-app": "npm run android --workspace=app",
     "ios-app": "npm run ios --workspace=app"
   },

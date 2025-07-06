@@ -17,6 +17,7 @@ RUN npx drizzle-kit push
 WORKDIR /dinner_match/api
 
 EXPOSE 3000
-
+# return to api directory
+WORKDIR /dinner_match
 # start the API server
 CMD ["npm", "run", "dev-api"]

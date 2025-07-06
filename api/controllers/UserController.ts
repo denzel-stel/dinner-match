@@ -9,7 +9,7 @@ import { usersTable } from "#database/tables/users.js";
 import { and, eq } from "drizzle-orm";
 import { SignInRequest } from "#api/types/requests/SignInRequest.js";
 import { User, UserWithToken } from "#database/models/User.js";
-import UserServiceInterface from "#services/interfaces/UserServiceInterface.js";
+import UserServiceInterface from "services/interfaces/UserServiceInterface.js";
 @injectable()
 class UserController implements UserControllerInterface {
     constructor(
