@@ -26,7 +26,7 @@
     "./**/*.ts",
     "**/*.tsx",
     "api/services/AuthenticationSessionService.ts"
-  ],
+, "database/repositories/interfaces"  ],
   "exclude": [
     "node_modules"
   ],

@@ -23,7 +23,7 @@ class SessionController implements SessionControllerInterface {
         const user = await this.userRepository.getById(Number(req.params.userId));
         res.send(user);
     }
-
+    
     async joinSession(req: Request, res: Response): Promise<void> {
         const id = req.params.userId;
         const numberId = Number(id);
