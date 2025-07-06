@@ -52,7 +52,7 @@ export default function Recipes() {
           justifyContent: "center",
           alignContent: "center",
           flexDirection: "row",
-          gap: 20,
+          gap: 60,
         }}
       >
         <Pressable
@@ -66,10 +66,10 @@ export default function Recipes() {
         <Pressable
           style={{
             ...buttonStyles.button,
-            ...buttonStyles.dangerButton,
+            ...buttonStyles.primaryButton,
           }}
         >
-          <Icon name="thumbs-down" color="white" size={30}></Icon>
+          <Icon name="thumbs-up" color="white" size={30}></Icon>
         </Pressable>
       </View>
     </View>
