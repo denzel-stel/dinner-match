@@ -1,5 +1,5 @@
 import { sha256 } from "@oslojs/crypto/sha2";
-import HashServiceInterface from "./interfaces/HashServiceInterface";
+import HashServiceInterface from "../interfaces/HashService.js";
 import { encodeHexLowerCase } from "@oslojs/encoding";
 import { injectable } from "inversify";
 

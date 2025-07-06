@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import UserControllerInterface from "./interfaces/UserControllerInterface.js";
 import { injectable, inject } from "inversify";
-import {Contracts} from "services/containers/contracts.js";
+import {Contracts} from "../../containers/contracts.js";
 import AuthSessionServiceInterface from "services/interfaces/AuthSessionService.js";
 import HashServiceInterface from "services/interfaces/HashService.js";
 import database from "database/database.js";

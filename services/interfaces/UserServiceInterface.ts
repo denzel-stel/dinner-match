@@ -1,4 +1,4 @@
-import { NewUser, User } from "#database/models/User.js";
+import { NewUser, User } from "database/models/User.js";
 
 /**
  * Interface defining the contract for user-related service operations.

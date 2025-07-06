@@ -1,10 +1,10 @@
 import { inject, injectable } from "inversify";
-import UserServiceInterface from "../interfaces/UserServiceInterface";
-import { NewUser, User } from "#database/models/User.js";
+import UserServiceInterface from "../interfaces/UserServiceInterface.js";
+import { NewUser, User } from "database/models/User.js";
 import { sha512 } from "@oslojs/crypto/sha2";
 import { encodeHexLowerCase } from "@oslojs/encoding";
-import { Contracts } from "#database/containers/contracts.js";
-import UserRepositoryInterface from "#database/repositories/interfaces.ts/UserRepositoryInterface.js";
+import { Contracts } from "../../containers/contracts.js";
+import UserRepositoryInterface from "database/repositories/interfaces.ts/UserRepositoryInterface.js";
 
 @injectable()
 class UserService implements UserServiceInterface {

@@ -1,17 +1,14 @@
-import OsloHashService from "#api/services/OsloHashService.js";
-import { Contracts } from "#database/containers/contracts.js";
-import { Contracts as ServiceContracts } from "#services/containers/contracts.js";
-import { AuthSession, AuthSessionWithToken } from "#database/models/AuthSession.js";
+import HashService from "../interfaces/HashService.js";
+import { Contracts } from "../../containers/contracts.js";
+import { AuthSession, AuthSessionWithToken } from "database/models/AuthSession.js";
 import { User } from "#database/models/User.js";
-import AuthSessionRepositoryInterface from "#database/repositories/interfaces.ts/AuthSessionRepositoryInterface.js";
-import AuthSessionServiceInterface from "#services/interfaces/AuthSessionService.js";
-import { sha256 } from "@oslojs/crypto/sha2";
-import { encodeHexLowerCase } from "@oslojs/encoding";
+import AuthSessionRepositoryInterface from "database/repositories/interfaces.ts/AuthSessionRepositoryInterface.js";
+import AuthSessionServiceInterface from "services/interfaces/AuthSessionService.js";
 import { inject } from "inversify";
-import database from "#database/database.js";
-import { usersTable } from "#database/tables/users.js";
-import { authSessionsTable } from "#database/tables/auth_sessions.js";
-import { SessionValidationResult } from "#api/types/SessionValidationResult.js";
+import database from "database/database.js";
+import { usersTable } from "database/tables/users.js";
+import { authSessionsTable } from "database/tables/auth_sessions.js";
+import { SessionValidationResult } from "api/types/SessionValidationResult.js";
 import { and, eq } from "drizzle-orm";
 
 class AuthSessionService implements AuthSessionServiceInterface {
@@ -19,7 +16,7 @@ class AuthSessionService implements AuthSessionServiceInterface {
 
     constructor(
         @inject(Contracts.AuthSessionRepository) private authSessionRepository: AuthSessionRepositoryInterface,
-        @inject(ServiceContracts.HashService) private hashService: OsloHashService
+        @inject(Contracts.HashService) private hashService: HashService
     ) {}
     private generateSecureRandomString(): string {
             // Human readable alphabet (a-z, 0-9 without l, o, 0, 1 to avoid confusion)

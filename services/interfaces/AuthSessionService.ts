@@ -1,5 +1,5 @@
-import { AuthSession, AuthSessionWithToken } from "#database/models/AuthSession.js";
-import { User } from "#database/models/User.js";
+import { AuthSession, AuthSessionWithToken } from "database/models/AuthSession.js";
+import { User } from "database/models/User.js";
 
 interface AuthSessionServiceInterface {
     createSessionFor(user: User): Promise<AuthSessionWithToken>;
