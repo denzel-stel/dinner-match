@@ -39,20 +39,24 @@ export default function Recipes() {
     setCurrentRecipeIndex(currentRecipeIndex + 1);
   };
   return (
-    <View>
+    <View style={{
+      flex:1,
+    }}>
       <SessionHeader />
+      
       <Container>
         <RecipeCard recipe={recipeList[0]}>
 
         </RecipeCard>
       </Container>
+      
 
       <View
         style={{
           justifyContent: "center",
           alignContent: "center",
           flexDirection: "row",
-          gap: 60,
+          gap: 30,
         }}
       >
         <Pressable

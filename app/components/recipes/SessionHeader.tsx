@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import textStyle from "@/assets/styles/typography";
 import colors from "@/constants/ColorScheme";
@@ -15,7 +15,12 @@ const SessionHeader = (): JSX.Element => {
       }}
     >
       <View style={{ gap: 8 }}>
-        <Text style={textStyle.h1}>Studenten huis 1</Text>
+        <View style={{flexDirection: "row", justifyContent: "space-between", alignItems: 'flex-end'}}>
+            <Text style={textStyle.h1}>Studenten huis 1</Text>
+            <Pressable>
+                <Icon name="sliders" style={{color: colors.label}} size={26}></Icon>
+            </Pressable>
+        </View>
         <View style={{ flexDirection: "row", alignItems: "center", gap: 16 }}>
           <View style={{ flexDirection: "row", gap: 8, alignItems: "center" }}>
             <Icon name="user" style={{ color: colors.label }} size={16}></Icon>

@@ -18,16 +18,21 @@ export default function TabLayout() {
     
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: 'tomato',
         sceneStyle: {
           backgroundColor: colors.backgroundColor
         },
         tabBarStyle: {
           borderTopLeftRadius: 16,
           borderTopRightRadius: 16,
-          borderColor: "white",
           height: 55,
-        }
+          backgroundColor: colors.backgroundColor,
+      
+        },
+        tabBarBackground: () => null,
+        tabBarLabelStyle: {
+          fontSize: 0,
+          fontWeight: "bold",
+        },
     }}
 >
       <Tabs.Screen

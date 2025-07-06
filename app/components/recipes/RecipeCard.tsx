@@ -9,7 +9,7 @@ import typographyStyle from '@/assets/styles/typography';
 import Card from "../Card";
 const RecipeCard = ({ recipe }: { recipe: Recipe }) => {
   return (
-    <View style={style.wrapper}>
+    <View>
       <Card>
         <Image
           style={style.thumbnail}
@@ -36,10 +36,6 @@ const style = StyleSheet.create({
     backgroundColor: colors.tintColor,
     borderRadius: 16,
     padding: 1,
-  },
-  wrapper: {
-    width: "100%",
-    height: "80%",
   },
 });
 export default RecipeCard;
