@@ -5,6 +5,7 @@ import { Image, StyleSheet, Text, View } from "react-native";
 import { isTypedArray } from "util/types";
 import { Recipe } from "database/models/Recipe";
 import { faker } from "@faker-js/faker/.";
+import typographyStyle from '@/assets/styles/typography';
 import Card from "../Card";
 const RecipeCard = ({ recipe }: { recipe: Recipe }) => {
   return (
@@ -16,7 +17,7 @@ const RecipeCard = ({ recipe }: { recipe: Recipe }) => {
             uri: "https://picsum.photos/200/300",
           }}
         ></Image>
-        <Text>Hello world</Text>
+        <Text style={{...typographyStyle.h3}}>Butter chicken</Text>
       </Card>
     </View>
   );
