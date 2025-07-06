@@ -24,6 +24,8 @@
     "faker": "^6.6.6",
     "ngrok": "^5.0.0-beta.2",
     "pg": "^8.16.3",
+    "drizzle-orm": "^0.39.3", 
+    "drizzle-seed": "^0.3.1",
     "stytch": "^12.23.0"
   },
   "devDependencies": {
