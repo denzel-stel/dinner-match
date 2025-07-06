@@ -16,6 +16,8 @@ import OsloHashService from "#services/implementations/OsloHashService.js";
 import AuthSessionService from "#services/implementations/AuthSessionService.js";
 import SessionControllerInterface from "#api/controllers/interfaces/SessionControllerInterface.js";
 import SessionController from "#api/controllers/SessionController.js";
+import SessionRepositoryInterface from "#database/repositories/interfaces.ts/SessionRepositoryInterface.js";
+import SessionRepository from "#database/repositories/SessionRepository.js";
 
 // This is the root container for the application
 const container = new Container();
@@ -33,5 +35,5 @@ container.bind<HashServiceInterface>(Contracts.HashService).to(OsloHashService);
 // Database
 container.bind<UserRepositoryInterface>(Contracts.UserRepository).to(UserRepository);
 container.bind<AuthSessionRepositoryInterface>(Contracts.AuthSessionRepository).to(AuthSessionRepository);
-
+container.bind<SessionRepositoryInterface>(Contracts.SessionRepository).to(SessionRepository);
 export { container };

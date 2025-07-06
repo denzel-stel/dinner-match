@@ -8,6 +8,7 @@ import { AuthRequest } from "#api/requests/AuthRequest.js";
 @injectable()
 class SessionController implements SessionControllerInterface {
     constructor(
+        @inject(Contracts.SessionRepository) private sessionRepository: SessionRepository,
         @inject(Contracts.UserRepository) private userRepository: UserRepository 
     ) {}
     
@@ -26,12 +27,12 @@ class SessionController implements SessionControllerInterface {
     async joinSession(req: Request, res: Response): Promise<void> {
         const id = req.params.userId;
         const numberId = Number(id);
-        const sessionId = req.params.sessionId;
+        const sessionId = Number(req.params.sessionId);
         const user = await this.userRepository.getById(numberId);
         if (user.id === undefined) {
             throw new Error("User not found");
         }
-        await SessionRepository.joinSession(sessionId, user.id);
+        await this.sessionRepository.joinSession(sessionId, user.id);
     }
 }
 

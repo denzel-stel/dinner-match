@@ -1,3 +1,4 @@
+import SessionRepository from "#database/repositories/SessionRepository.js";
 
 export const Contracts = {
     // Controllers
@@ -14,6 +15,7 @@ export const Contracts = {
     
     // Repository
     UserRepository: Symbol.for("UserRepository"),
+    SessionRepository: Symbol.for("SessionRepository"),
     AuthSessionRepository: Symbol.for("AuthSessionRepository")
 }
 

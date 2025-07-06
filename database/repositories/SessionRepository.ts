@@ -1,13 +1,14 @@
 import { eq } from "drizzle-orm";
-import { sessionMembers } from "../tables";
-import database from "../database"
+import { sessionMembers } from "../tables/index.js";
+import database from "../database.js"
+import SessionRepositoryInterface from "./interfaces.ts/SessionRepositoryInterface.js";
 
-class SessionRepository {
-    async joinSession(sessionId: string, userId: number) {
+class SessionRepository implements SessionRepositoryInterface  {
+    async joinSession(sessionId: number, userId: number) {
         await database.insert(sessionMembers).values({session_id: Number(sessionId), user_id: userId});
     }
 
-    async leaveSession(sessionId: string, userId: number) {
+    async leaveSession(sessionId: number, userId: number) {
         await database
             .delete(sessionMembers)
             .$dynamic()
@@ -16,4 +17,4 @@ class SessionRepository {
     }
 }
 
-export default new SessionRepository();
+export default SessionRepository;
