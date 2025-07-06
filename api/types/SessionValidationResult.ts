@@ -1,5 +1,5 @@
-import { User } from "#database/models";
-import { AuthSession } from "#database/models";
+import { User } from "database/models/index.js";
+import { AuthSession } from "database/models/index.js";
 
 export type SessionValidationResult =
 	| { session: AuthSession; user: User }

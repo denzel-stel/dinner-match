@@ -1,7 +1,7 @@
 import cookieParser from "cookie-parser";
-import { expressApp } from "../api";
+import { expressApp } from "../api.js";
 import express from "express"
-import checkAuthenticated from "./authentication";
+import checkAuthenticated from "./authentication.js";
 import cors from "cors";
 
 // Parse json and urlencoded bodies

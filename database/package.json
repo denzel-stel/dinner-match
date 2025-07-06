@@ -1,6 +1,7 @@
 {
   "name": "database",
   "version": "1.0.0",
+  "type": "module",
   "dependencies": {
     "@types/pg": "^8.15.4",
     "drizzle-orm": "^0.39.3",

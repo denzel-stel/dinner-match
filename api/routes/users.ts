@@ -1,5 +1,5 @@
-import { expressApp } from "../api";
-import container from "#api/containers/container";
+import { expressApp } from "../api.js";
+import container from "#api/containers/container.js";
 import UserControllerInterface from "#api/controllers/interfaces/UserControllerInterface.js";
 import { Contracts } from "#api/containers/contracts.js";
 

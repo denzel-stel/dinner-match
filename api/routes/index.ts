@@ -1,4 +1,4 @@
-import {expressApp} from "../api";
+import {expressApp} from "../api.js";
 import "./recipes";
 import "./users";
 import "./sessions";

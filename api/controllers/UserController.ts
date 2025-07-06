@@ -1,14 +1,14 @@
 import { Request, Response } from "express";
-import UserControllerInterface from "./interfaces/UserControllerInterface";
+import UserControllerInterface from "./interfaces/UserControllerInterface.js";
 import { injectable, inject } from "inversify";
-import { Contracts } from "#services/containers/contracts.js";
-import AuthSessionServiceInterface from "#services/interfaces/AuthSessionService.js";
-import HashServiceInterface from "#services/interfaces/HashService.js";
-import database from "#database/database.js";
-import { usersTable } from "#database/tables/users.js";
+import {Contracts} from "services/containers/contracts.js";
+import AuthSessionServiceInterface from "services/interfaces/AuthSessionService.js";
+import HashServiceInterface from "services/interfaces/HashService.js";
+import database from "database/database.js";
+import { usersTable } from "../../database/tables/users.js";
 import { and, eq } from "drizzle-orm";
 import { SignInRequest } from "#api/types/requests/SignInRequest.js";
-import { User, UserWithToken } from "#database/models/User.js";
+import { User, UserWithToken } from "database/models/User.js";
 import UserServiceInterface from "services/interfaces/UserServiceInterface.js";
 @injectable()
 class UserController implements UserControllerInterface {

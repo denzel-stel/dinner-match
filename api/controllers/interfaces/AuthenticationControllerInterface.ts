@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { SignInRequest } from "../../types/requests/SignInRequest";
-import SignUpRequest from "../../types/requests/SignUpRequest";
+import { SignInRequest } from "../../types/requests/SignInRequest.js";
+import SignUpRequest from "../../types/requests/SignUpRequest.js";
 
 interface AuthenticationControllerInterface {
     signIn: (req: SignInRequest, res: Response) => Promise<void>;

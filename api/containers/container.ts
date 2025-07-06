@@ -1,6 +1,6 @@
 import { Container } from "inversify";
-import { Contracts } from "./contracts";
-import { rootContainer } from "../../containers/container";
+import {Contracts} from "./contracts.js";
+import { rootContainer } from "../../containers/container.js";
 import UserController from "#api/controllers/UserController.js";
 import UserControllerInterface from "#api/controllers/interfaces/UserControllerInterface.js";
 

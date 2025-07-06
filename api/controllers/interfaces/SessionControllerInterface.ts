@@ -1,5 +1,5 @@
 import { Response } from "express";
-import { AuthRequest } from "../../requests/AuthRequest";
+import { AuthRequest } from "../../requests/AuthRequest.js";
 
 interface SessionControllerInterface {
     getSession: (req: AuthRequest, res: Response) => Promise<void>;

@@ -1,5 +1,5 @@
-import { expressApp } from "../api";
-import sessionController from "../controllers/SessionController";
+import { expressApp } from "../api.js";
+import sessionController from "../controllers/SessionController.js";
 
 
 expressApp.get("/auth/users/:userId/sessions", sessionController.getForUser);

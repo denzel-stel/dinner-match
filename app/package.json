@@ -2,6 +2,7 @@
   "name": "app",
   "main": "expo-router/entry",
   "version": "1.0.0",
+  "type": "module",
   "jest": {
     "preset": "jest-expo"
   },

@@ -1,6 +1,5 @@
 import {Request, Response} from "express";
-import RecipeRepository from "#database/repositories/RecipeRepository";
-
+import RecipeRepository from "database/repositories/RecipeRepository.js";
 
 class RecipeController {
 

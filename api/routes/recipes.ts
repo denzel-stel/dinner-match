@@ -1,5 +1,5 @@
-import RecipeController from "../controllers/RecipeController";
-import {expressApp} from "../api";
+import RecipeController from "../controllers/RecipeController.js";
+import {expressApp} from "../api.js";
 
 const recipeController = new RecipeController();
 

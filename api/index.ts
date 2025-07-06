@@ -5,7 +5,7 @@
 
 
 // Run database seeders
-import { seedManager } from "#database/seeders/index.js";
+import { seedManager } from "database/seeders/index.js";
 seedManager.runAllFresh().then(() => {
     console.log('Database reset and seeded successfully!');
 }).catch((error) => {

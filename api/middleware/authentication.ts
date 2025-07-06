@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from "express";
 import { SessionValidationResult } from "../types/SessionValidationResult";
 import { AuthRequest } from "../requests/AuthRequest";
-import container from "#services/containers/container.js";
-import AuthSessionService from "#services/interfaces/AuthSessionService.js";
+import container from "services/containers/container.js";
+import AuthSessionService from "services/interfaces/AuthSessionService.js";
 
 
 export default  async function checkAuthenticated(req: AuthRequest, res: Response, next:NextFunction)  {
