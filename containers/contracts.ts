@@ -2,6 +2,7 @@
 export const Contracts = {
     // Controllers
     UserController: Symbol.for("UserController"),
+    SessionController: Symbol.for("SessionController"),
     
     // App services
     StorageService: Symbol.for("StorageService"),

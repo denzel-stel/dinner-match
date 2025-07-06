@@ -14,12 +14,14 @@ import AuthSessionServiceInterface from "#services/interfaces/AuthSessionService
 import HashServiceInterface from "#services/interfaces/HashService.js";
 import OsloHashService from "#services/implementations/OsloHashService.js";
 import AuthSessionService from "#services/implementations/AuthSessionService.js";
+import SessionControllerInterface from "#api/controllers/interfaces/SessionControllerInterface.js";
+import SessionController from "#api/controllers/SessionController.js";
 
 // This is the root container for the application
 const container = new Container();
 // Api
 container.bind<UserControllerInterface>(Contracts.UserController).to(UserController).inSingletonScope();
-
+container.bind<SessionControllerInterface>(Contracts.SessionController).to(SessionController).inSingletonScope();
 // App Services
 container.bind<StorageService>(Contracts.StorageService).to(SecureStorageService);
 
