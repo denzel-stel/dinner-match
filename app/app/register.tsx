@@ -4,9 +4,10 @@ import PrimaryButton from "@/components/Button";
 import { Alert, Pressable, Text, TextInput, View } from "react-native";
 import { useEffect, useState } from "react";
 import { useNavigation } from "expo-router";
-import { NewUser } from "#database/dist/models/User";
+import { NewUser } from "database/models/User";
 import { createUser } from "@/controllers/users";
-
+import { container } from "@/containers/container";
+import { Contracts } from "@/containers/contracts";
 const Register = (): JSX.Element => {
     const [email, setEmail] = useState('');
     const [firstName, setFirstName] = useState('');
@@ -36,7 +37,12 @@ const Register = (): JSX.Element => {
             last_name: lastName,
         }
 
-        await createUser(user);
+        const userWithToken = await createUser(user);
+
+        const storageService = container.get<StorageService>(Contracts.StorageService);
+        console.log(userWithToken);
+        // Save the token client side.
+        await storageService.saveToken(userWithToken.data.token);
     };
 
     const navigateLogin = () => {

@@ -43,32 +43,6 @@
         }
       ],
       [
-        "expo-font",
-        {
-          "fonts": [
-            "./assets/fonts/robot-serif/RobotoSerif-Regular.ttf",
-            "./assets/fonts/robot-serif/RobotoSerif-Medium.ttf"
-          ],
-          "android": {
-            "fonts": [
-              {
-                "fontFamily": "RobotoSerif",
-                "fontDefinitions": [
-                  {
-                    "path": "./assets/fonts/robot-serif/RobotoSerif-Regular.ttf",
-                    "weight": 300
-                  },
-                  {
-                    "path": "./assets/fonts/robot-serif/RobotoSerif-Medium.ttf",
-                    "weight": 300
-                  }
-                ]
-              }
-            ]
-          }
-        }
-      ],
-      [
         "expo-build-properties",
         {
           "android": {
@@ -78,7 +52,8 @@
             "kotlinVersion": "1.9.25"
           }
         }
-      ]
+      ],
+      "expo-secure-store"
     ],
     "experiments": {
       "typedRoutes": true

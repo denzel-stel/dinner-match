@@ -8,7 +8,7 @@ import database from "#database/database.js";
 import { usersTable } from "#database/tables/users.js";
 import { and, eq } from "drizzle-orm";
 import { SignInRequest } from "#api/types/requests/SignInRequest.js";
-import { User } from "#database/models/User.js";
+import { User, UserWithToken } from "#database/models/User.js";
 import UserServiceInterface from "#services/interfaces/UserServiceInterface.js";
 @injectable()
 class UserController implements UserControllerInterface {
@@ -42,12 +42,12 @@ class UserController implements UserControllerInterface {
     async create(req: Request, res: Response): Promise<void> {
         // Call service with req.body to create a new user
         const user = await this.userService.createUser(req.body);
-        // const user = await UserRepository.create(req.body);
+        // A new user definitely doesn't have a login session
         const session = await this.authSessionService.createSessionFor(user);
 
-        // We just send the user and session token back to the client
+        // We just send the user and session token back to the client, client saves token securely.
         res.send({
-            user, 
+            ...user, 
             token: session.token
         });
     }

@@ -2,7 +2,7 @@ import { Text } from 'react-native';
 import { Redirect, Stack } from 'expo-router';
 
 export default function AppLayout() {
-  const user = true;
+  const user = false;
   
   // Only require authentication within the (app) group's layout as users
   // need to be able to access the (auth) group and sign in again.
