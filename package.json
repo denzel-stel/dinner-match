@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "workspaces": [
-      "./app",
-      "./database"
+    "./app",
+    "./database"
   ],
   "scripts": {
     "dev-api": "tsx ./api/index.ts",
@@ -16,5 +16,8 @@
     "#services/*": "./services/*",
     "#api/*": "./api/*",
     "#app/*": "./app/*"
+  },
+  "dependencies": {
+    "expo-font": "~13.0.4"
   }
 }
