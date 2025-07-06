@@ -19,8 +19,5 @@
     "#services/*": "./services/*",
     "#api/*": "./api/*",
     "#app/*": "./app/*"
-  },
-  "dependencies": {
-    "expo-font": "~13.0.4"
   }
 }
